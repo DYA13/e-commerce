@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide name'],
     minlength: 3,
-    maxlength: 50,
+    maxlength: 50
   },
   email: {
     type: String,
@@ -15,22 +15,25 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'Please provide email'],
     validate: {
       validator: validator.isEmail,
-      message: 'Please provide valid email',
-    },
+      message: 'Please provide valid email'
+    }
   },
   password: {
     type: String,
     required: [true, 'Please provide password'],
-    minlength: 6,
+    minlength: 6
   },
   role: {
     type: String,
     enum: ['admin', 'user'],
-    default: 'user',
-  },
+    default: 'user'
+  }
 })
 
 UserSchema.pre('save', async function () {
+  // console.log(this.modifiedPaths())
+  // console.log(this.isModified('name'))
+  if (!this.isModified('password')) return
   const salt = await bcrypt.genSalt(10)
   this.password = await bcrypt.hash(this.password, salt)
 })
