@@ -38,7 +38,7 @@ ReviewSchema.index({ product: 1, user: 1 }, { unique: true })
 //This code defines a static method calculateAverageRating on the Review model. It performs an aggregate pipeline operation to calculate the average rating and the number of reviews for a specific product
 ReviewSchema.statics.calculateAverageRating = async function (productId) {
   const result = await this.aggregate([
-    //The $match stage filters the reviews by the specified productId.It works similar to the find query in MongoDB.
+    //The $match stage filters the reviews by the specified productId.
     { $match: { product: productId } },
     {
       //$group stage calculates the average rating and the count of reviews.
@@ -49,6 +49,7 @@ ReviewSchema.statics.calculateAverageRating = async function (productId) {
       }
     }
   ])
+  console.log(result)
   //After calculating the values, it updates the corresponding Product document using findOneAndUpdate. The averageRating is rounded up to the nearest integer, and any errors encountered during the update are logged to the console.
   try {
     await this.model('Product').findOneAndUpdate(
