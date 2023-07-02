@@ -14,6 +14,11 @@ const helmet = require('helmet')
 const xss = require('xss-clean')
 const mongoSanitize = require('express-mongo-sanitize')
 
+//Swagger
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml')
+
 //database
 const connectDB = require('./db/connect')
 
@@ -55,6 +60,8 @@ app.use('/api/v1/orders', orderRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
+
+app.use('/api-use', swaggerUI.serve)
 
 const port = process.env.PORT || 3000
 const start = async () => {

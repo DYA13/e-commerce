@@ -1,0 +1,857 @@
+openapi: 3.0.0
+info:
+  title: Commerce
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://node-course-e-commerce-8r2s.onrender.com/api/v1
+  variables: {}
+paths:
+  /auth/register:
+    post:
+      tags:
+      - Auth
+      summary: Register User
+      operationId: RegisterUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/RegisterUserRequest'
+              - example:
+                  email: maria@gmail.com
+                  password: secret
+                  name: maria
+            example:
+              email: maria@gmail.com
+              password: secret
+              name: maria
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/logout:
+    get:
+      tags:
+      - Auth
+      summary: Logout  User
+      operationId: LogoutUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login User
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/LoginUserRequest'
+              - example:
+                  email: susan@gmail.com
+                  password: secret
+            example:
+              email: susan@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /users:
+    get:
+      tags:
+      - User
+      summary: Get All Users
+      operationId: GetAllUsers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users/123:
+    get:
+      tags:
+      - User
+      summary: Get Single User
+      operationId: GetSingleUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users/showMe:
+    get:
+      tags:
+      - User
+      summary: Show Current User
+      operationId: ShowCurrentUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users/updateUser:
+    patch:
+      tags:
+      - User
+      summary: Update User
+      operationId: UpdateUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateUserRequest'
+              - example:
+                  name: bobo
+                  email: chris@gmail.com
+                  password: secret
+            example:
+              name: bobo
+              email: chris@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users/updateUserPassword:
+    patch:
+      tags:
+      - User
+      summary: Update User Password
+      operationId: UpdateUserPassword
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /products:
+    get:
+      tags:
+      - Product
+      summary: Get All Products
+      operationId: GetAllProducts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    post:
+      tags:
+      - Product
+      summary: Create Product
+      operationId: CreateProduct
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateProductRequest'
+              - example:
+                  name: accent chair
+                  price: 25999
+                  image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+                  colors:
+                  - '#ff0000'
+                  - '#00ff00'
+                  - '#0000ff'
+                  company: marcos
+                  description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+                  category: office
+            example:
+              name: accent chair
+              price: 25999
+              image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+              colors:
+              - '#ff0000'
+              - '#00ff00'
+              - '#0000ff'
+              company: marcos
+              description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+              category: office
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+/products/{id}:
+    get:
+      tags:
+      - Product
+      summary: Get Single Product
+      operationId: GetSingleProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+/products/{id}:
+    patch:
+      tags:
+      - Product
+      summary: Update Product
+      operationId: UpdateProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+/products/{id}:
+    delete:
+      tags:
+      - Product
+      summary: Delete Product
+      operationId: DeleteProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /products/uploadImage:
+    post:
+      tags:
+      - Product
+      summary: Upload Image
+      operationId: UploadImage
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /products/{id}/reviews:
+    get:
+      tags:
+      - Product
+      summary: Get Single Product Reviews
+      operationId: GetSingleProductReviews
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /reviews:
+    get:
+      tags:
+      - Review
+      summary: Get All Reviews
+      operationId: GetAllReviews
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    post:
+      tags:
+      - Review
+      summary: Create Review
+      operationId: CreateReview
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateReviewRequest'
+              - example:
+                  product: 6486df785e24589a49b5702e
+                  rating: 2
+                  title: good product
+                  comment: very, very good product
+            example:
+              product: 6486df785e24589a49b5702e
+              rating: 2
+              title: good product
+              comment: very, very good product
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /reviews/{id}:
+    get:
+      tags:
+      - Review
+      summary: Get Single Review
+      operationId: GetSingleReview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /reviews/{id}:
+    patch:
+      tags:
+      - Review
+      summary: Update review
+      operationId: Updatereview
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdatereviewRequest'
+              - example:
+                  rating: 3
+                  title: bad product
+                  comment: very, very bad product by anna
+            example:
+              rating: 3
+              title: bad product
+              comment: very, very bad product by anna
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /reviews/{id}:
+    delete:
+      tags:
+      - Review
+      summary: Delete Review
+      operationId: DeleteReview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /orders:
+    post:
+      tags:
+      - Order
+      summary: Create Order
+      operationId: CreateOrder
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateOrderRequest'
+              - example:
+                  product:
+                    _id: 648329d8913fcaed6533b271
+                    name: albany sectional
+                    price: 109999
+                    description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+                    image: /uploads/example.jpeg
+                    category: kitchen
+                    company: liddy
+                    colors:
+                    - '#000'
+                    - '#ffb900'
+                    featured: false
+                    freeShipping: false
+                    inventory: 15
+                    averageRating: 2
+                    numOfReviews: 2
+                    user: 64831f7512ffe94a561f4035
+                    createdAt: 2023-06-09T13:32:08.232Z
+                    updatedAt: 2023-06-12T08:57:44.534Z
+                    __v: 0
+                    reviews:
+                    - _id: 6486d853a754d25fef672615
+                      rating: 3
+                      title: bad product
+                      comment: very, very bad product by anna
+                      user: 64831f7512ffe94a561f4035
+                      product: 648329d8913fcaed6533b271
+                      createdAt: 2023-06-12T08:33:23.516Z
+                      updatedAt: 2023-06-12T08:57:44.459Z
+                      __v: 0
+                    - _id: 6486d8a2a754d25fef67261d
+                      rating: 1
+                      title: bad  product
+                      comment: very, very bad product
+                      user: 64831f8f12ffe94a561f403d
+                      product: 648329d8913fcaed6533b271
+                      createdAt: 2023-06-12T08:34:42.273Z
+                      updatedAt: 2023-06-12T08:34:42.273Z
+                      __v: 0
+                    id: 648329d8913fcaed6533b271
+            example:
+              product:
+                _id: 648329d8913fcaed6533b271
+                name: albany sectional
+                price: 109999
+                description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+                image: /uploads/example.jpeg
+                category: kitchen
+                company: liddy
+                colors:
+                - '#000'
+                - '#ffb900'
+                featured: false
+                freeShipping: false
+                inventory: 15
+                averageRating: 2
+                numOfReviews: 2
+                user: 64831f7512ffe94a561f4035
+                createdAt: 2023-06-09T13:32:08.232Z
+                updatedAt: 2023-06-12T08:57:44.534Z
+                __v: 0
+                reviews:
+                - _id: 6486d853a754d25fef672615
+                  rating: 3
+                  title: bad product
+                  comment: very, very bad product by anna
+                  user: 64831f7512ffe94a561f4035
+                  product: 648329d8913fcaed6533b271
+                  createdAt: 2023-06-12T08:33:23.516Z
+                  updatedAt: 2023-06-12T08:57:44.459Z
+                  __v: 0
+                - _id: 6486d8a2a754d25fef67261d
+                  rating: 1
+                  title: bad  product
+                  comment: very, very bad product
+                  user: 64831f8f12ffe94a561f403d
+                  product: 648329d8913fcaed6533b271
+                  createdAt: 2023-06-12T08:34:42.273Z
+                  updatedAt: 2023-06-12T08:34:42.273Z
+                  __v: 0
+                id: 648329d8913fcaed6533b271
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    get:
+      tags:
+      - Order
+      summary: Get All Orders
+      operationId: GetAllOrders
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /orders/6487153f534200366cfc6041:
+    get:
+      tags:
+      - Order
+      summary: Get Single Order
+      operationId: GetSingleOrder
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /orders/123:
+    patch:
+      tags:
+      - Order
+      summary: Update Order
+      operationId: UpdateOrder
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /orders/showAllMyOrders:
+    get:
+      tags:
+      - Order
+      summary: Show Current User Orders
+      operationId: ShowCurrentUserOrders
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    RegisterUserRequest:
+      title: RegisterUserRequest
+      required:
+      - email
+      - password
+      - name
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        name:
+          type: string
+      example:
+        email: maria@gmail.com
+        password: secret
+        name: maria
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: susan@gmail.com
+        password: secret
+    UpdateUserRequest:
+      title: UpdateUserRequest
+      required:
+      - name
+      - email
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: bobo
+        email: chris@gmail.com
+        password: secret
+    CreateProductRequest:
+      title: CreateProductRequest
+      required:
+      - name
+      - price
+      - image
+      - colors
+      - company
+      - description
+      - category
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        image:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+          description: ''
+        company:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+      example:
+        name: accent chair
+        price: 25999
+        image: https://dl.airtable.com/.attachmentThumbnails/e8bc3791196535af65f40e36993b9e1f/438bd160
+        colors:
+        - '#ff0000'
+        - '#00ff00'
+        - '#0000ff'
+        company: marcos
+        description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+        category: office
+    CreateReviewRequest:
+      title: CreateReviewRequest
+      required:
+      - product
+      - rating
+      - title
+      - comment
+      type: object
+      properties:
+        product:
+          type: string
+        rating:
+          type: integer
+          format: int32
+        title:
+          type: string
+        comment:
+          type: string
+      example:
+        product: 6486df785e24589a49b5702e
+        rating: 2
+        title: good product
+        comment: very, very good product
+    UpdatereviewRequest:
+      title: UpdatereviewRequest
+      required:
+      - rating
+      - title
+      - comment
+      type: object
+      properties:
+        rating:
+          type: integer
+          format: int32
+        title:
+          type: string
+        comment:
+          type: string
+      example:
+        rating: 3
+        title: bad product
+        comment: very, very bad product by anna
+    CreateOrderRequest:
+      title: CreateOrderRequest
+      required:
+      - product
+      type: object
+      properties:
+        product:
+          allOf:
+          - $ref: '#/components/schemas/Product'
+          - {}
+      example:
+        product:
+          _id: 648329d8913fcaed6533b271
+          name: albany sectional
+          price: 109999
+          description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+          image: /uploads/example.jpeg
+          category: kitchen
+          company: liddy
+          colors:
+          - '#000'
+          - '#ffb900'
+          featured: false
+          freeShipping: false
+          inventory: 15
+          averageRating: 2
+          numOfReviews: 2
+          user: 64831f7512ffe94a561f4035
+          createdAt: 2023-06-09T13:32:08.232Z
+          updatedAt: 2023-06-12T08:57:44.534Z
+          __v: 0
+          reviews:
+          - _id: 6486d853a754d25fef672615
+            rating: 3
+            title: bad product
+            comment: very, very bad product by anna
+            user: 64831f7512ffe94a561f4035
+            product: 648329d8913fcaed6533b271
+            createdAt: 2023-06-12T08:33:23.516Z
+            updatedAt: 2023-06-12T08:57:44.459Z
+            __v: 0
+          - _id: 6486d8a2a754d25fef67261d
+            rating: 1
+            title: bad  product
+            comment: very, very bad product
+            user: 64831f8f12ffe94a561f403d
+            product: 648329d8913fcaed6533b271
+            createdAt: 2023-06-12T08:34:42.273Z
+            updatedAt: 2023-06-12T08:34:42.273Z
+            __v: 0
+          id: 648329d8913fcaed6533b271
+    Product:
+      title: Product
+      required:
+      - _id
+      - name
+      - price
+      - description
+      - image
+      - category
+      - company
+      - colors
+      - featured
+      - freeShipping
+      - inventory
+      - averageRating
+      - numOfReviews
+      - user
+      - createdAt
+      - updatedAt
+      - __v
+      - reviews
+      - id
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        description:
+          type: string
+        image:
+          type: string
+        category:
+          type: string
+        company:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+          description: ''
+        featured:
+          type: boolean
+        freeShipping:
+          type: boolean
+        inventory:
+          type: integer
+          format: int32
+        averageRating:
+          type: integer
+          format: int32
+        numOfReviews:
+          type: integer
+          format: int32
+        user:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        __v:
+          type: integer
+          format: int32
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+          description: ''
+        id:
+          type: string
+      example:
+        _id: 648329d8913fcaed6533b271
+        name: albany sectional
+        price: 109999
+        description: Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic chillwave trust fund. Viral typewriter fingerstache pinterest pork belly narwhal. Schlitz venmo everyday carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag kinfolk microdosing gochujang live-edge
+        image: /uploads/example.jpeg
+        category: kitchen
+        company: liddy
+        colors:
+        - '#000'
+        - '#ffb900'
+        featured: false
+        freeShipping: false
+        inventory: 15
+        averageRating: 2
+        numOfReviews: 2
+        user: 64831f7512ffe94a561f4035
+        createdAt: 2023-06-09T13:32:08.232Z
+        updatedAt: 2023-06-12T08:57:44.534Z
+        __v: 0
+        reviews:
+        - _id: 6486d853a754d25fef672615
+          rating: 3
+          title: bad product
+          comment: very, very bad product by anna
+          user: 64831f7512ffe94a561f4035
+          product: 648329d8913fcaed6533b271
+          createdAt: 2023-06-12T08:33:23.516Z
+          updatedAt: 2023-06-12T08:57:44.459Z
+          __v: 0
+        - _id: 6486d8a2a754d25fef67261d
+          rating: 1
+          title: bad  product
+          comment: very, very bad product
+          user: 64831f8f12ffe94a561f403d
+          product: 648329d8913fcaed6533b271
+          createdAt: 2023-06-12T08:34:42.273Z
+          updatedAt: 2023-06-12T08:34:42.273Z
+          __v: 0
+        id: 648329d8913fcaed6533b271
+    Review:
+      title: Review
+      required:
+      - _id
+      - rating
+      - title
+      - comment
+      - user
+      - product
+      - createdAt
+      - updatedAt
+      - __v
+      type: object
+      properties:
+        _id:
+          type: string
+        rating:
+          type: integer
+          format: int32
+        title:
+          type: string
+        comment:
+          type: string
+        user:
+          type: string
+        product:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        __v:
+          type: integer
+          format: int32
+      example:
+        _id: 6486d853a754d25fef672615
+        rating: 3
+        title: bad product
+        comment: very, very bad product by anna
+        user: 64831f7512ffe94a561f4035
+        product: 648329d8913fcaed6533b271
+        createdAt: 2023-06-12T08:33:23.516Z
+        updatedAt: 2023-06-12T08:57:44.459Z
+        __v: 0
+tags:
+- name: Auth
+- name: User
+- name: Product
+- name: Review
+- name: Order
