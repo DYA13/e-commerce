@@ -61,7 +61,11 @@ app.use('/api/v1/orders', orderRouter)
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
-app.use('/api-use', swaggerUI.serve)
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+
+app.get('/', (req, res) => {
+  res.send('<h1>E commerce</h1> <a href="/api-docs">Documentation</a>')
+})
 
 const port = process.env.PORT || 3000
 const start = async () => {
