@@ -17,7 +17,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 //Swagger
 const swaggerUI = require('swagger-ui-express')
 const YAML = require('yamljs')
-const swaggerDocument = YAML.load('./swagger.yaml')
+const swaggerDocument = YAML.load('./routes/swagger.yaml')
 
 //database
 const connectDB = require('./db/connect')
@@ -28,6 +28,12 @@ const userRouter = require('./routes/userRoutes')
 const productRouter = require('./routes/productRoutes')
 const reviewRouter = require('./routes/reviewRoutes')
 const orderRouter = require('./routes/orderRoutes')
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+
+app.get('/', (req, res) => {
+  res.send('<h1>E commerce</h1> <a href="/api-docs">Documentation</a>')
+})
 
 //middleware
 const notFoundMiddleware = require('./middleware/not-found')
@@ -60,12 +66,6 @@ app.use('/api/v1/orders', orderRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
-
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
-
-app.get('/', (req, res) => {
-  res.send('<h1>E commerce</h1> <a href="/api-docs">Documentation</a>')
-})
 
 const port = process.env.PORT || 3000
 const start = async () => {
