@@ -95,6 +95,13 @@ paths:
       operationId: GetSingleUser
       parameters:
         - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 64597787ce99911a5bffe3a1
       responses:
         '200':
           description: ''
