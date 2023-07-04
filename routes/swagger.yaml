@@ -87,13 +87,14 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-  /users/123:
+  /users/{id}:
     get:
       tags:
         - User
       summary: Get Single User
       operationId: GetSingleUser
-      parameters: []
+      parameters:
+        - name: id
       responses:
         '200':
           description: ''
