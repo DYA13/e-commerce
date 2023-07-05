@@ -154,6 +154,24 @@ paths:
       summary: Update User Password
       operationId: UpdateUserPassword
       parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: UpdateUserPasswordRequest
+              type: object
+              properties:
+                oldPassword:
+                  type: string
+                newPassword:
+                  type: string
+              required:
+                - oldPassword
+                - newPassword
+              example:
+                oldPassword: foo
+                newPassword: bar
       responses:
         '200':
           description: ''
