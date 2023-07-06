@@ -40,7 +40,7 @@ paths:
     get:
       tags:
         - Auth
-      summary: Logout  User
+      summary: Logout User
       operationId: LogoutUser
       parameters: []
       responses:
@@ -48,6 +48,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /auth/login:
     post:
       tags:
@@ -72,7 +74,11 @@ paths:
       responses:
         '200':
           description: ''
-          headers: {}
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: access_token=ABC123; Path=/
       deprecated: false
       security: []
   /users:
@@ -87,6 +93,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /users/{id}:
     get:
       tags:
@@ -107,6 +115,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /users/showMe:
     get:
       tags:
@@ -119,6 +129,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /users/updateUser:
     patch:
       tags:
@@ -147,6 +159,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /users/updateUserPassword:
     patch:
       tags:
@@ -177,6 +191,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /products:
     get:
       tags:
@@ -189,6 +205,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
     post:
       tags:
         - Product
@@ -230,6 +248,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /products/648329d8913fcaed6533b271:
     get:
       tags:
@@ -242,7 +262,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-
+      security:
+        - bearerAuth: []
     patch:
       tags:
         - Product
@@ -254,6 +275,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /products/648320542daa467f60d4ccc3:
     delete:
       tags:
@@ -266,6 +289,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /products/uploadImage:
     post:
       tags:
@@ -278,6 +303,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /products/648320542daa467f60d4ccc3/reviews:
     get:
       tags:
@@ -290,6 +317,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /reviews:
     get:
       tags:
@@ -302,6 +331,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
     post:
       tags:
         - Review
@@ -331,6 +362,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /reviews/648329d8913fcaed6533b271:
     get:
       tags:
@@ -343,6 +376,8 @@ paths:
           description: ''
           headers: {}
       deprecated: false
+      security:
+        - bearerAuth: []
   /reviews/6486d853a754d25fef672615:
     patch:
       tags:
