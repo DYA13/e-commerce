@@ -910,6 +910,12 @@ components:
         createdAt: 2023-06-12T08:33:23.516Z
         updatedAt: 2023-06-12T08:57:44.459Z
         __v: 0
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+  - httpBearer: []
 tags:
   - name: Auth
   - name: User
