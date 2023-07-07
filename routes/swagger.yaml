@@ -301,7 +301,16 @@ paths:
         - Product
       summary: Delete Product
       operationId: DeleteProduct
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
