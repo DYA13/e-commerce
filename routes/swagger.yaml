@@ -250,7 +250,7 @@ paths:
       deprecated: false
       security:
         - bearerAuth: []
-  /products/648329d8913fcaed6533b271:
+  /products/{id}:
     get:
       tags:
         - Product
