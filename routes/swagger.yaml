@@ -147,11 +147,11 @@ paths:
                 - $ref: '#/components/schemas/UpdateUserRequest'
                 - example:
                     name: bobo
-                    email: chris@gmail.com
+                    email: bobo@gmail.com
                     password: secret
             example:
               name: bobo
-              email: chris@gmail.com
+              email: bobo@gmail.com
               password: secret
         required: true
       responses:
@@ -256,7 +256,16 @@ paths:
         - Product
       summary: Get Single Product
       operationId: GetSingleProduct
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 64597787ce99911a5bffe3a1
       responses:
         '200':
           description: ''
