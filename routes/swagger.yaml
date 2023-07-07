@@ -361,7 +361,16 @@ paths:
         - Review
       summary: Get All Reviews
       operationId: GetAllReviews
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -374,7 +383,16 @@ paths:
         - Review
       summary: Create Review
       operationId: CreateReview
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       requestBody:
         description: ''
         content:
@@ -406,7 +424,16 @@ paths:
         - Review
       summary: Get Single Review
       operationId: GetSingleReview
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -420,7 +447,16 @@ paths:
         - Review
       summary: Update review
       operationId: Updatereview
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       requestBody:
         description: ''
         content:
@@ -448,7 +484,16 @@ paths:
         - Review
       summary: Delete Review
       operationId: DeleteReview
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -460,7 +505,16 @@ paths:
         - Order
       summary: Create Order
       operationId: CreateOrder
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       requestBody:
         description: ''
         content:
@@ -561,7 +615,16 @@ paths:
         - Order
       summary: Get All Orders
       operationId: GetAllOrders
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -573,7 +636,16 @@ paths:
         - Order
       summary: Get Single Order
       operationId: GetSingleOrder
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -585,7 +657,16 @@ paths:
         - Order
       summary: Update Order
       operationId: UpdateOrder
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -597,7 +678,16 @@ paths:
         - Order
       summary: Show Current User Orders
       operationId: ShowCurrentUserOrders
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
