@@ -265,7 +265,7 @@ paths:
           style: simple
           schema:
             type: string
-            example: 64597787ce99911a5bffe3a1
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -278,7 +278,16 @@ paths:
         - Product
       summary: Update Product
       operationId: UpdateProduct
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
@@ -286,7 +295,7 @@ paths:
       deprecated: false
       security:
         - bearerAuth: []
-  /products/648320542daa467f60d4ccc3:
+  /products/{id}:
     delete:
       tags:
         - Product
@@ -306,7 +315,16 @@ paths:
         - Product
       summary: Upload Image
       operationId: UploadImage
-      parameters: []
+
+      parameters:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: 648329d8913fcaed6533b271
       responses:
         '200':
           description: ''
