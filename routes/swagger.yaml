@@ -341,7 +341,7 @@ paths:
       deprecated: false
       security:
         - bearerAuth: []
-  /products/648320542daa467f60d4ccc3/reviews:
+  /products/{id}/reviews:
     get:
       tags:
         - Product
