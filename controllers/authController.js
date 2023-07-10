@@ -58,6 +58,7 @@ const login = async (req, res) => {
 }
 
 // User logout
+// note about the clearCookie function
 const logout = async (req, res) => {
   res.cookie('token', 'logout', {
     httpOnly: true,
