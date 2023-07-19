@@ -295,7 +295,7 @@ paths:
       deprecated: false
       security:
         - bearerAuth: []
-  /products/{id}:
+  /products/{idProduct}:
     delete:
       tags:
         - Product
