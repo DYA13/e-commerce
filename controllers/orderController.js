@@ -16,7 +16,7 @@ const createOrder = async (req, res) => {
   const { items: cartItems, tax, shippingFee } = req.body
 
   // Checking if there are any items in the cart
-  if (!cartItems || cartItems.length < 1) {
+  if (!cartItems?.length > 0) {
     throw new CustomError.BadRequestError('No cart items provided')
   }
   // Checking if tax and shipping fee are provided
@@ -26,6 +26,7 @@ const createOrder = async (req, res) => {
 
   let orderItems = []
   let subtotal = 0
+  // suggest reduce
   // Iterating over the cart items
   for (const item of cartItems) {
     // Finding the product in the database based on the item's product ID
@@ -92,6 +93,7 @@ const getCurrentUserOrders = async (req, res) => {
   const orders = await Order.find({ user: req.user.userId })
   res.status(StatusCodes.OK).json({ orders, count: orders.length })
 }
+// suggest renaming function
 const updateOrder = async (req, res) => {
   const { id: orderId } = req.params
   const { paymentIntentId } = req.body

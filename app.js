@@ -5,6 +5,7 @@ const express = require('express')
 const app = express()
 
 //rest of the packages
+// encourage using morgan for logging
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
@@ -28,7 +29,7 @@ const userRouter = require('./routes/userRoutes')
 const productRouter = require('./routes/productRoutes')
 const reviewRouter = require('./routes/reviewRoutes')
 const orderRouter = require('./routes/orderRoutes')
-
+// would probably be good to put these after line 54, so that all the security middleware applies to this route too
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 app.get('/', (req, res) => {
@@ -54,6 +55,7 @@ app.use(mongoSanitize())
 
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
+// any particular reason to have two separate public/static folders?
 app.use(express.static('./publicFolder'))
 app.use(express.static('./public'))
 app.use(fileUpload())
