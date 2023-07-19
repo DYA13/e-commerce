@@ -59,7 +59,19 @@ app.use(cookieParser(process.env.JWT_SECRET))
 app.use(express.static('./publicFolder'))
 app.use(express.static('./public'))
 app.use(fileUpload())
-
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'default-src': [
+          "'self'",
+          'https://node-course-e-commerce-8r2s.onrender.com'
+        ]
+      }
+    }
+  })
+)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/products', productRouter)
