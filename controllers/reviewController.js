@@ -56,6 +56,7 @@ const getSingleReview = async (req, res) => {
 
 const updateReview = async (req, res) => {
   const { id: reviewId } = req.params
+  // note about what happens if a field is not passed in?
   const { rating, title, comment } = req.body
 
   const review = await Review.findOne({ _id: reviewId })

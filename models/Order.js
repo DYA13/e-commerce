@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+// consider min vlaidation on price and such?
 const SingleOrderItemSchema = mongoose.Schema({
   name: { type: String, required: true },
   image: { type: String, required: true },
