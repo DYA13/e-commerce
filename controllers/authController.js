@@ -60,9 +60,9 @@ const login = async (req, res) => {
 // User logout
 // note about the clearCookie function
 const logout = async (req, res) => {
-  res.cookie('token', 'logout', {
+  res.clearCookie('token', {
     httpOnly: true,
-    expires: new Date(Date.now()),
+    expires: new Date(),
     secure: process.env.NODE_ENV === 'production',
     signed: true,
     sameSite: 'none'

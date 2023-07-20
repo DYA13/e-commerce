@@ -48,18 +48,29 @@ app.use(
   })
 )
 
-app.use(helmet())
 app.use(cors())
 app.use(xss())
 app.use(mongoSanitize())
-
+app.use(morgan('combined'))
 app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 // any particular reason to have two separate public/static folders?
 app.use(express.static('./publicFolder'))
 app.use(express.static('./public'))
 app.use(fileUpload())
-
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'default-src': [
+          "'self'",
+          'https://node-course-e-commerce-8r2s.onrender.com'
+        ]
+      }
+    }
+  })
+)
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/products', productRouter)

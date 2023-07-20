@@ -67,9 +67,16 @@ const updateReview = async (req, res) => {
 
   checkPermissions(req.user, review.user)
 
-  review.rating = rating
-  review.title = title
-  review.comment = comment
+  // This code checks if the req.body had a key/field called "rating"/"title"/"comment". And if it did then it will use that value to update the existing review
+  review.rating = req.body.hasOwnProperty('rating')
+    ? req.body.rating
+    : review.rating
+  review.title = req.body.hasOwnProperty('title')
+    ? req.body.title
+    : review.title
+  review.comment = req.body.hasOwnProperty('comment')
+    ? req.body.comment
+    : review.comment
 
   await review.save()
   res.status(StatusCodes.OK).json({ review })
