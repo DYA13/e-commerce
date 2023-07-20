@@ -4,8 +4,16 @@ const mongoose = require('mongoose')
 const SingleOrderItemSchema = mongoose.Schema({
   name: { type: String, required: true },
   image: { type: String, required: true },
-  price: { type: Number, required: true },
-  amount: { type: Number, required: true },
+  price: {
+    type: Number,
+    required: true,
+    min: 0 // Minimum price value should be greater than or equal to 0
+  },
+  amount: {
+    type: Number,
+    required: true,
+    min: 1 // Minimum amount value should be greater than or equal to 1
+  },
   product: {
     type: mongoose.Schema.ObjectId,
     ref: 'Product',
